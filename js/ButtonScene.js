@@ -5,7 +5,7 @@ class ButtonScene extends Phaser.Scene{
     }
 
     preload(){
-        this.load.ima
+        this.load.
     }
 
     create(){
