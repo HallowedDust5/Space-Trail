@@ -1,5 +1,7 @@
+// import BaseEvent from './ButtonScene'
 
-let based = new BaseEvent();
+
+let based = new ButtonScene();
 
 
 const config = {
@@ -7,12 +9,10 @@ const config = {
     width: 800,
     height: 600,
 
-    scene: {
-        [
-            //Title screen goes here
-            based,
-        ]
-    }
+    scene: [
+        //Title screen goes here 
+        ButtonScene,
+    ]
 };
 
 
