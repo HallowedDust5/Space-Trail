@@ -8,11 +8,11 @@ class Button {
      * @param {string} fontFamily Default is Comic Sans
      * @param {function} callback What the button does after it is pressed
      */
-    constructor(x, y, label, scene,fontFamily = 'Comic Sans', callback) {
+    constructor(x, y, label, scene, callback) {
         const button = scene.add.text(x, y, label)
             .setOrigin(.5,.5)
-            .setFontFamily(fontFamily)
-            .setStyle({ backgroundColor: '#111' })
+            .setFontFamily('Comic Sans')
+            .setStyle({ backgroundColor: 'black' })
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => callback())
             .on('pointerover', () => button.setStyle({ fill: '#f39c12' }))
