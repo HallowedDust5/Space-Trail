@@ -1,8 +1,11 @@
 // import BaseEvent from './ButtonScene'
 
 
-let based = new ButtonScene();
 
+
+var stats = {
+    //Add ship stats here
+};
 
 const config = {
     type: Phaser.AUTO,
@@ -11,7 +14,7 @@ const config = {
 
     scene: [
         //Title screen goes here 
-        ButtonScene,
+        new ButtonScene(stats),
     ]
 };
 

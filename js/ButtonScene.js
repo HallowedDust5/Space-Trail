@@ -1,6 +1,10 @@
 class ButtonScene extends Phaser.Scene{
 
-    constructor() {
+    /**
+     * 
+     * @param {Object} player_stats Global player stats variable to be passed to all scene instances
+     */
+    constructor(player_stats) {
         super();
     }
 
