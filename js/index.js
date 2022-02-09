@@ -1,4 +1,3 @@
-// import BaseEvent from './ButtonScene'
 
 //These items will be in the inventory set in the stats objects
 var items = [
