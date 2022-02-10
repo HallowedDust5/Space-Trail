@@ -16,7 +16,7 @@ class Button {
             .setOrigin(.5,.5)
             .setStyle({ backgroundColor, font,fill:color })
             .setInteractive({ useHandCursor: true })
-            .on('pointerdown', () => callback())
+            .on('pointerdown', () => callback(scene))
             .on('pointerover', () => button.setStyle({ fill: hoverColor }))
             .on('pointerout', () => button.setStyle({ fill: color }));
     }

@@ -2,9 +2,8 @@ class LaunchScene extends Phaser.Scene{
 
     constructor(stats){
         super({key:'launch scene'});
+        this.key = 'launch scene';
         this.stats = stats;
-        // this.scene.call(this,{key:'launch'});
-        console.log(this);
     }
 
     preload(){
@@ -20,10 +19,11 @@ class LaunchScene extends Phaser.Scene{
         const GAME_HEIGHT = this.sys.game.config.height;
         const GAME_WIDTH = this.sys.game.config.width; 
 
-        function nextTurn() {
+        function nextTurn(scene) {
             
             //Load next scene first
-            this.destroy();
+            // this.remove(this.key);
+        console.log(scene.scene.remove(scene.key));
         }
 
 
