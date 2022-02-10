@@ -1,8 +1,10 @@
 class LaunchScene extends Phaser.Scene{
 
     constructor(stats){
-        super();
-        this.player_stats = stats;
+        super({key:'launch scene'});
+        this.stats = stats;
+        // this.scene.call(this,{key:'launch'});
+        console.log(this);
     }
 
     preload(){
@@ -30,4 +32,6 @@ class LaunchScene extends Phaser.Scene{
         
         
     }
+
+
 }

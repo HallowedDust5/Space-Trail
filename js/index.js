@@ -11,7 +11,7 @@ var stats = {
     medicine:0,
     oxygen:0,
     water:0,
-    inventory: Set(),
+    inventory: new Set(),
 };
 
 const config = {
