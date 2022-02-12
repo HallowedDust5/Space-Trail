@@ -17,7 +17,6 @@ const config = {
     scene: [
         //Title screen goes here
         new LaunchScene(stats), 
-        // new ButtonScene(stats),
     ]
 };
 

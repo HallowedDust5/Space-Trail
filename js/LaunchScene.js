@@ -6,9 +6,8 @@ class LaunchScene extends Phaser.Scene{
      */
     constructor(stats){
         super({key:'launch scene'});
+        this.key = 'launch scene';
         this.stats = stats;
-        // this.scene.call(this,{key:'launch'});
-        console.log(this);
     }
 
     preload(){
@@ -54,7 +53,7 @@ class LaunchScene extends Phaser.Scene{
         let water_button_onClick = () =>{};
 
 
-        
+
         objs.tools_button = new Button()
         objs.food_button = 
         objs.medicine_button = 
