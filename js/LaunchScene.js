@@ -53,6 +53,8 @@ class LaunchScene extends Phaser.Scene{
         let i=0;
         first_stat_x =objs.backRect.x - objs.backRect.x/1.8;
         for (const key in this.stats) {
+
+            //onClick Functions
             let plus = ()=>{
                 if(this.stats[key]>=MAX_RESOURCE){return;}
                 this.stats[key]++;
@@ -64,13 +66,14 @@ class LaunchScene extends Phaser.Scene{
             };
 
             
-
+            //Makes the label, plus and minus buttons 
             stats_buttons[key] = {
                 label:this.add.text(first_stat_x,objs.backRect.y-objs.backRect.y/11,key,).setOrigin(.5,.5),
                 plus:new Button(first_stat_x,objs.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
                 minus:new Button(first_stat_x,objs.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
             }
 
+            //Increments each tools' x coord
             first_stat_x+=DIST_BTWN_STATS;
         }
 
