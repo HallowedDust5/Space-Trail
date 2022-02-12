@@ -35,6 +35,7 @@ class LaunchScene extends Phaser.Scene{
 
         //First stat's rectangle x coord
         let first_stat_x = objs.backRect.x - objs.backRect.x/1.8;
+        const DIST_BTWN_STATS = objs.backRect.width/5.2;
         objs.tool_rects = [];
         
         //Generates rectangles for all stats
@@ -43,22 +44,40 @@ class LaunchScene extends Phaser.Scene{
         for (let i = 1; i <= Object.keys(this.stats).length; i++) {
             objs.tool_rects.push(this.add.rectangle(first_stat_x,objs.backRect.y,objs.backRect.width/5.3,objs.backRect.height/1.3,0x000000));
             
-            first_stat_x+= objs.backRect.width/5.2;
+            first_stat_x+= DIST_BTWN_STATS;
         }
-        
-        let tools_button_onClick = () =>{};
-        let food_button_onClick = () =>{};
-        let medicine_button_onClick = () =>{};
-        let oxygen_button_onClick = () =>{};
-        let water_button_onClick = () =>{};
+
+
+        let stats_buttons = {}; //Array of OnClicks for the stats buttons
+        //Makes the stats buttons
+        let i=0;
+        first_stat_x =objs.backRect.x - objs.backRect.x/1.8;
+        for (const key in this.stats) {
+            let plus = ()=>{
+                if(this.stats[key]>=MAX_RESOURCE){return;}
+                this.stats[key]++;
+            };
+
+            let minus = ()=>{
+                if(this.stats[key]<=0){return;}
+                this.stats[key]--;
+            };
+
+            
+
+            stats_buttons[key] = {
+                label:this.add.text(first_stat_x,objs.backRect.y-objs.backRect.y/11,key,).setOrigin(.5,.5),
+                plus:new Button(first_stat_x,objs.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
+                minus:new Button(first_stat_x,objs.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
+            }
+
+            first_stat_x+=DIST_BTWN_STATS;
+        }
 
 
 
-        objs.tools_button = new Button()
-        objs.food_button = 
-        objs.medicine_button = 
-        objs.oxygen_button = 
-        objs.water_button = 
+
+
  
 
 
