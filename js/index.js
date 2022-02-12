@@ -1,9 +1,5 @@
 
-//These items will be in the inventory set in the stats objects
-var items = [
-    'water purifier',
-    ''
-];
+
 
 var stats = {
     tools:0,
@@ -11,7 +7,6 @@ var stats = {
     medicine:0,
     oxygen:0,
     water:0,
-    inventory: new Set(),
 };
 
 const config = {
