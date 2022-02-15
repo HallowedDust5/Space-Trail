@@ -1,10 +1,12 @@
-// import BaseEvent from './ButtonScene'
-
 
 
 
 var stats = {
-    //Add ship stats here
+    tools:0,
+    food:0,
+    medicine:0,
+    oxygen:0,
+    water:0,
 };
 
 const config = {
@@ -13,8 +15,8 @@ const config = {
     height: 600,
 
     scene: [
-        //Title screen goes here 
-        new ButtonScene(stats),
+        //Title screen goes here
+        new LaunchScene(stats), 
     ]
 };
 
