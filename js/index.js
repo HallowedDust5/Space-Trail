@@ -2,11 +2,14 @@
 
 
 var stats = {
-    tools:0,
-    food:0,
-    medicine:0,
-    oxygen:0,
-    water:0,
+    resources:{
+        tools:0,
+        food:0,
+        medicine:0,
+        oxygen:0,
+        water:0,
+    },
+    numOfCrewMembers:5,
 };
 
 const config = {

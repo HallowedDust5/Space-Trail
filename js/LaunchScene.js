@@ -7,7 +7,7 @@ class LaunchScene extends Phaser.Scene{
     constructor(stats){
         super({key:'launch scene'});
         this.key = 'launch scene';
-        this.stats = stats;
+        this.stats = stats.resources;
     }
 
     preload(){
@@ -79,7 +79,7 @@ class LaunchScene extends Phaser.Scene{
 
 
 
-
+        new Button(100,100,'bruh',this,randScene);
 
  
 
