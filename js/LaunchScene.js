@@ -1,13 +1,11 @@
-class LaunchScene extends Phaser.Scene{
+class LaunchScene extends BaseScene{
 
     /**
      * 
      * @param {Object} stats Pass the global stats objects through 
      */
     constructor(stats){
-        super({key:'launch scene'});
-        this.key = 'launch scene';
-        this.stats = stats.resources;
+        super(stats,'launch');
     }
 
     preload(){
