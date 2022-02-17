@@ -37,31 +37,71 @@ class BaseEvent extends BaseScene{
     }
 
     create(){
-        const GAME_HEIGHT = this.sys.game.height;
-        const GAME_WIDTH = this.sys.game.width;
+        const GAME_HEIGHT = this.sys.game.config.height;
+        const GAME_WIDTH = this.sys.game.config.width;
         let obj = this.objects;
-        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH*2/5,GAME_HEIGHT*3/5,0xffffff);
-
+        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH*2/5,GAME_HEIGHT*3/5,0x23d5f1);
         const HEIGHT = obj.backRect.height;
         const WIDTH = obj.backRect.width;
+        const BACKRECT_X = obj.backRect.x-WIDTH/2;
+        const BACKRECT_Y = obj.backRect.y-HEIGHT/2
 
-        createButton(100,100,'bruh',this,()=>{console.log(this);})
 
-        //Creates each choice button
+        /*
+        CREATES EVENT IMAGE
+        */
+
+        obj.event_image = this.add.image(BACKRECT_X+WIDTH/2,BACKRECT_Y+HEIGHT/3.4,'event-image')
+        .setScale(4.5,4);
+
+
+        /*
+        CREATES EVENT TITLE
+        */
+        obj.title = this.add.text(
+            BACKRECT_X + WIDTH/2,
+            obj.event_image.y+obj.event_image.height*2.2 ,
+            obj.event_title,
+        ).setOrigin(.5,.5)
+
+
+
+
+
+        /*
+        CREATES EVENT DESCRIPTION
+        */
+        obj.desc = this.add.text(
+            BACKRECT_X + WIDTH/2,
+            obj.event_image.y+obj.event_image.height*3 ,
+            obj.event_description,
+        )
+        .setOrigin(.5,.5)
+        .setStyle({font:'20px Arial'})
+
+
+
+
+        /*
+        CREATES CHOICE BUTTONS
+        */
         obj.choiceBtns = [];
-        const first_btn_x = WIDTH*7/8;
-        const dist_btwn_btns = WIDTH*1/8;
-        const choice_btn_y = HEIGHT-HEIGHT*7/8;
+        const first_btn_x = WIDTH*1.5/8+BACKRECT_X;
+        const dist_btwn_btns = WIDTH*2.5/8;
+        const choice_btn_y = BACKRECT_Y+HEIGHT *7/8;
         for (let i = 0; i < obj.choiceBtnConfig.length; i++) {
             let btn = obj.choiceBtnConfig[i];
-            console.log(btn);
-            obj.choiceBtns.push(createButton(
+            // obj.choiceBtns.push(
+                createButton(
                 first_btn_x+dist_btwn_btns*i,
                 choice_btn_y,
                 btn.label,
                 this,
                 btn.onClick,
-                ));
+                undefined,
+                '20px Arial'
+                )
+            // );
         }
 
 
