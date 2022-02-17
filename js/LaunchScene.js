@@ -12,10 +12,6 @@ class LaunchScene extends BaseScene{
         /*
         Load needed assets here
         */ 
-       
-
-        this.objects = {};
-
 
     }
 
@@ -48,7 +44,6 @@ class LaunchScene extends BaseScene{
 
         let stats_buttons = {}; //Array of OnClicks for the stats buttons
         //Makes the stats buttons
-        let i=0;
         first_stat_x =objs.backRect.x - objs.backRect.x/1.8;
         for (const key in this.stats) {
 
@@ -67,8 +62,8 @@ class LaunchScene extends BaseScene{
             //Makes the label, plus and minus buttons 
             stats_buttons[key] = {
                 label:this.add.text(first_stat_x,objs.backRect.y-objs.backRect.y/11,key,).setOrigin(.5,.5),
-                plus:new Button(first_stat_x,objs.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
-                minus:new Button(first_stat_x,objs.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
+                plus:createButton(first_stat_x,objs.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
+                minus:createButton(first_stat_x,objs.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
             }
 
             //Increments each tools' x coord
@@ -77,7 +72,7 @@ class LaunchScene extends BaseScene{
 
 
 
-        new Button(100,100,'bruh',this,randScene);
+        createButton(100,100,'bruh',this,randScene);
 
  
 
