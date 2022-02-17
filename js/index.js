@@ -16,10 +16,16 @@ const config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    pixelArt:true,
 
     scene: [
         //Title screen goes here
-        new LaunchScene(stats), 
+        new BaseEvent(stats,'based','../assets/sprites/o2thumbnail.png',
+            'Test',
+            'Im just testing this bruv no biggie',
+            [{label:'Choice 1',onClick:()=>{console.log(this);}},{label:'Chocie 2',onClick:()=>{console.log(this);}}]
+        ),
+        // new LaunchScene(stats), 
     ]
 };
 
