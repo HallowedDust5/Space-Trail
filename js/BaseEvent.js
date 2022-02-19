@@ -33,7 +33,9 @@ class BaseEvent extends BaseScene{
     }
 
     createAddOn(){
+
         // throw new Error('BaseEvent is an abstract class.');
+
     }
 
     create(){
