@@ -20,7 +20,7 @@ const config = {
 
     scene: [
         //Title screen goes here
-        new BaseEvent(stats,'based','../assets/sprites/o2thumbnail.png',
+        new BaseEvent(stats,'based','/assets/sprites/o2thumbnail.png',
             'Test',
             'Im just testing this bruv no biggie',
             [{label:'Choice 1',onClick:()=>{console.log(this);}},{label:'Chocie 2',onClick:()=>{console.log(this);}}]
