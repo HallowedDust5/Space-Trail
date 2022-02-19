@@ -34,7 +34,7 @@ class BaseEvent extends BaseScene{
 
     createAddOn(){
 
-        // throw new Error('BaseEvent is an abstract class.');
+        throw new Error('BaseEvent is an abstract class.');
 
     }
 
@@ -79,7 +79,7 @@ class BaseEvent extends BaseScene{
             obj.event_description,
         )
         .setOrigin(.5,.5)
-        .setStyle({font:'20px Arial'})
+        .setStyle({font:'15px Arial'})
 
 
 
@@ -101,7 +101,7 @@ class BaseEvent extends BaseScene{
                 this,
                 btn.onClick,
                 undefined,
-                '20px Arial'
+                '15px Arial'
                 )
             // );
         }
