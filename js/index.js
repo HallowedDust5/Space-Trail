@@ -3,8 +3,8 @@
 
 var stats = {
     resources:{
-        tools:0,
         food:0,
+        tools:0,
         medicine:0,
         oxygen:0,
         water:0,
@@ -21,8 +21,7 @@ const config = {
 
     scene: [
         //Title screen goes here
-        new O2Event(stats)
-        // new LaunchScene(stats), 
+        new UIScene(stats)
     ]
 };
 

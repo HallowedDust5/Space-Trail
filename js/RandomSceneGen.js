@@ -1,6 +1,6 @@
 let events = [
-    LaunchScene,
-    //Add other event scenes here
+    O2Event,
+    //Add other events here
 ];
 
 let randInt = (min,max) =>{

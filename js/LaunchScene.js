@@ -35,7 +35,7 @@ class LaunchScene extends BaseScene{
         //Generates rectangles for all stats
         //THIS IS MEANT TO BE CHANGED LATER
         //whether that be the colors, this is only a basic layout
-        for (let i = 1; i <= Object.keys(this.stats).length; i++) {
+        for (let i = 1; i <= Object.keys(this.stats.resources).length; i++) {
             objs.tool_rects.push(this.add.rectangle(first_stat_x,objs.backRect.y,objs.backRect.width/5.3,objs.backRect.height/1.3,0x000000));
             
             first_stat_x+= DIST_BTWN_STATS;
@@ -44,18 +44,18 @@ class LaunchScene extends BaseScene{
 
         let stats_buttons = {}; //Array of OnClicks for the stats buttons
         //Makes the stats buttons
-        first_stat_x =objs.backRect.x - objs.backRect.x/1.8;
-        for (const key in this.stats) {
+        first_stat_x = objs.backRect.x - objs.backRect.x/1.8;
+        for (const key in this.stats.resources.resources) {
 
             //onClick Functions
             let plus = ()=>{
-                if(this.stats[key]>=MAX_RESOURCE){return;}
-                this.stats[key]++;
+                if(this.stats.resources[key]>=MAX_RESOURCE){return;}
+                this.stats.resources[key]++;
             };
 
             let minus = ()=>{
-                if(this.stats[key]<=0){return;}
-                this.stats[key]--;
+                if(this.stats.resources[key]<=0){return;}
+                this.stats.resources[key]--;
             };
 
             

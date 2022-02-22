@@ -1,0 +1,119 @@
+class UIScene extends BaseScene{
+
+
+/**
+ * 
+ * @param {Object} stats global stats object
+ */
+    constructor(stats){
+        super(stats,'ui');
+    }
+
+
+    preload(){
+
+
+        // Load images here
+        // this.load.image('','');
+
+
+
+    }
+
+    create(){
+        let obj = this.objects;
+        const GAME_WIDTH = this.sys.game.config.width;
+        const GAME_HEIGHT = this.sys.game.config.height;
+        const INV_BKG_RECT_WIDTH = GAME_WIDTH*(6/33.3);
+        const INV_BKG_RECT_HEIGHT = GAME_HEIGHT*(2/25);
+
+        obj.inv_bkg_rects = [];
+        obj.inv_title_text = [];
+        obj.inv_icons = [];
+        obj.resource_amount = [];
+
+
+        /*
+        BACKGROUND INVENTORY RECTANGLES
+        */
+
+
+
+        //Create inv title 
+        obj.inv_bkg_rects.push(
+            this.add.rectangle(
+                2,
+                2,
+                INV_BKG_RECT_WIDTH,
+                INV_BKG_RECT_HEIGHT/2,
+                0xffffff
+            ).setOrigin(0,0)
+        )
+
+        //Makes each inv background rectangle
+        for (let i = 0; i < Object.keys(stats.resources).length; i++) {
+            let y_coord = obj.inv_bkg_rects[0].height+i*(INV_BKG_RECT_HEIGHT+5)+4;
+            
+            obj.inv_bkg_rects.push(
+                this.add.rectangle(
+                    obj.inv_bkg_rects[0].x,
+                    y_coord,
+                    INV_BKG_RECT_WIDTH,
+                    INV_BKG_RECT_HEIGHT,
+                    0xffffff
+                ).setOrigin(0,0)
+            );
+    
+    
+    
+            
+        }
+        
+
+
+
+        /*
+        INVENTORY TITLES TEXT
+        */
+
+        let titles = ['INVENTORY'];
+        
+        titles.push(...Object.keys(this.stats.resources));
+
+        for (let i = 0; i < obj.inv_bkg_rects.length; i++) {
+            let rect = obj.inv_bkg_rects[i];
+            let title = titles[i];
+
+            obj.inv_title_text.push(
+                this.add.text(
+                    rect.x+rect.width/2,
+                    rect.y+rect.height/2,
+                    title,
+                    {font:'10px',fill:"#000"}
+                ).setOrigin(.5,.5)
+            );
+        }
+
+
+
+
+
+
+        /*
+         *INVENTORY ICONS 
+         */
+
+        
+        
+
+
+
+
+    }
+
+
+
+
+
+
+}
