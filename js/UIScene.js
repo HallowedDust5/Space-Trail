@@ -13,8 +13,10 @@ class UIScene extends BaseScene{
     preload(){
 
 
-        // Load images here
-        // this.load.image('','');
+        // Loads icons
+        Object.keys(stats.resources).forEach(key => {
+            this.load.image(`${key}-icon`,`assets/${key}-icon.png`);
+        });
 
 
 
@@ -103,8 +105,19 @@ class UIScene extends BaseScene{
          *INVENTORY ICONS 
          */
 
+        for (let i = 0; i < obj.inv_bkg_rects.slice(1).length; i++) {
+            const rect = obj.inv_bkg_rects[i+1];
+            const key = Object.keys(stats.resources)[i]
+            obj.inv_icons.push(
+                this.add.image(rect.x+(.3/6)*rect.width,rect.y+rect.height*.5,`${key}-icon.png`)
+                    .setOrigin(0,.5)
+            );
+            
+        }
         
-        
+
+
+
 
 
 
