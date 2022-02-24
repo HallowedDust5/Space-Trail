@@ -17,7 +17,7 @@ function randScene(scene) {
         chosen_scene.key, //Gets random scene's key
         scene.stats //Gives the stats object to pass into the next scene
         );
-        events.splice(rand_index)
+        events.splice(rand_index);
 
         return chosen_scene;
 }

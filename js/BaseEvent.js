@@ -84,6 +84,7 @@ class BaseEvent extends BaseScene{
 
 
 
+
         /*
         CREATES CHOICE BUTTONS
         */
@@ -93,17 +94,21 @@ class BaseEvent extends BaseScene{
         const choice_btn_y = BACKRECT_Y+HEIGHT *7/8;
         for (let i = 0; i < obj.choiceBtnConfig.length; i++) {
             let btn = obj.choiceBtnConfig[i];
-            // obj.choiceBtns.push(
+            obj.choiceBtns.push(
                 createButton(
                 first_btn_x+dist_btwn_btns*i,
                 choice_btn_y,
                 btn.label,
                 this,
-                ()=>{btn.onClick();this.scene.remove(this.key);},
+                ()=>{
+                    btn.onClick();
+                    this.scene.remove(this.key);
+
+                },
                 undefined,
                 '15px Arial'
                 )
-            // );
+            );
         }
 
 

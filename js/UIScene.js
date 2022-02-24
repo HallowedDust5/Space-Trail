@@ -32,7 +32,13 @@ class UIScene extends BaseScene{
         obj.inv_bkg_rects = [];
         obj.inv_title_text = [];
         obj.inv_icons = [];
+
+        obj.lives_bkg;
+        obj.lives_icons = [];
+        obj.lives_title;
+
         obj.next_turn_btn;
+
 
 
         /*
@@ -138,10 +144,36 @@ class UIScene extends BaseScene{
 
     
             /*
-             * 
+             * Lives
              */
+
+            obj.lives_bkg = this.add.rectangle(
+                (27.3/33.3)*GAME_WIDTH,
+                GAME_HEIGHT/15,
+                (4/33.3)*GAME_WIDTH,
+                (18/25)*GAME_HEIGHT,
+                0xffffff
+            ).setOrigin(0,0);
     
-    
+            let icon_rect ={
+                x:obj.lives_bkg.x+0.2*obj.lives_bkg.width,
+                y:obj.lives_bkg.y+(1/40)*obj.lives_bkg.height,
+                height:obj.lives_bkg.height*(18/20),
+                width:obj.lives_bkg.width*(3/5),
+            };
+
+            let image_height = (icon_rect.height-20)/this.stats.astronauts;
+            for (let i = 0; i < this.stats.astronauts; i++) {
+                obj.lives_icons.push(
+                    this.add.rectangle(
+                        icon_rect.x,
+                        icon_rect.y+i*(image_height+10),
+                        icon_rect.width,
+                        image_height,
+                        0xdf3945
+                    ).setOrigin(0,0)
+                )
+            }
         
 
 
@@ -153,6 +185,14 @@ class UIScene extends BaseScene{
          * NEXT TURN
          */
 
+        const updateWeek = ()=>{
+            console.log(this);
+            this.game.scene.scenes
+                .filter(x=>x.key===new UIScene().key)[0]
+                .objects.week_counter
+                .setText(`WEEK\n${this.stats.week_counter}/${this.stats.max_weeks}`);
+        }
+
         this.next_turn_btn = createButton(
             GAME_WIDTH*(27/33.3),
             GAME_HEIGHT*(23/25),
@@ -160,6 +200,23 @@ class UIScene extends BaseScene{
             this,
             ()=>{
                 randScene(this);
+                if (Object.values(this.stats.resources).some(x=>x<1)) {
+                    /*
+                     * Tear down all scenes and give loss screen
+                     */
+                    console.log('not enough resources');
+                    return;
+                }
+
+                else if(this.stats.week_counter===this.stats.max_weeks){
+                    //Tear down all scenes and give the win screen
+                    console.log('Reached max weeks');
+                    return;
+                }
+
+                //Successful turn where 
+                this.stats.week_counter++;
+                updateWeek();
             },
         );
 
