@@ -83,7 +83,6 @@ class LaunchScene extends BaseScene{
 
 
 
-        createButton(100,100,'bruh',this,randScene);
 
  
 

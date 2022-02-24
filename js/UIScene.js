@@ -137,7 +137,9 @@ class UIScene extends BaseScene{
 
 
     
-    
+            /*
+             * 
+             */
     
     
         
@@ -151,7 +153,15 @@ class UIScene extends BaseScene{
          * NEXT TURN
          */
 
-        thi
+        this.next_turn_btn = createButton(
+            GAME_WIDTH*(27/33.3),
+            GAME_HEIGHT*(23/25),
+            'NEXT',
+            this,
+            ()=>{
+                randScene(this);
+            },
+        );
 
 
     
