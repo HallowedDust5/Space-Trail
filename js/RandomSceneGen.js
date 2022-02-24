@@ -8,10 +8,10 @@ let randInt = (min,max) =>{
 };
 
 function randScene(scene) {
-    
+    let chosen_scene = events[randInt(0,events.length)];
     scene.scene.start(
-        events[randInt(0,events.length)].key, //Gets random scene's key
+        new chosen_scene({bruh:'bruh'}).key, //Gets random scene's key
         scene.stats //Gives the stats object to pass into the next scene
         );
-
+        return chosen_scene;
 }
