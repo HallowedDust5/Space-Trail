@@ -32,7 +32,7 @@ class UIScene extends BaseScene{
         obj.inv_bkg_rects = [];
         obj.inv_title_text = [];
         obj.inv_icons = [];
-        obj.resource_amount = [];
+        obj.next_turn_btn;
 
 
         /*
@@ -122,11 +122,38 @@ class UIScene extends BaseScene{
 
 
 
+        /*
+         * WEEK COUNTER
+         */
+
+        obj.week_counter = this.add.text(
+            (1/33.3)*GAME_WIDTH,
+            (20/25)*GAME_HEIGHT,
+            `WEEK\n${this.stats.week_counter}/${this.stats.max_weeks}`,
+        )
+            .setOrigin(0,0)
+            .setStyle({backgroundColor:'#ffffff',fill:'#000000',font:'40px'});
+
+
+
     
     
     
     
         
+
+
+
+
+
+
+        /*
+         * NEXT TURN
+         */
+
+        thi
+
+
     
     }
 
