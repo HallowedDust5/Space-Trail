@@ -23,9 +23,12 @@ const config = {
 
     scene: [
         //Title screen goes here
-        new UIScene(stats),
+        // new UIScene(stats),
+        // new O2Event(stats),
+        new TitleScene(stats),
         new LaunchScene(stats),
-        new O2Event(stats),
+
+
     ]
 };
 
