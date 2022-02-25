@@ -186,14 +186,13 @@ class UIScene extends BaseScene{
          */
 
         const updateWeek = ()=>{
-            console.log(this);
             this.game.scene.scenes
                 .filter(x=>x.key===new UIScene().key)[0]
                 .objects.week_counter
                 .setText(`WEEK\n${this.stats.week_counter}/${this.stats.max_weeks}`);
         }
 
-        this.next_turn_btn = createButton(
+        obj.next_turn_btn = createButton(
             GAME_WIDTH*(27/33.3),
             GAME_HEIGHT*(23/25),
             'NEXT',
