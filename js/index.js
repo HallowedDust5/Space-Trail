@@ -27,7 +27,8 @@ const config = {
         // new O2Event(stats),
         new TitleScene(stats),
         new LaunchScene(stats),
-
+        // new VictoryScene(stats),
+        // new DefeatScene(stats),
 
     ]
 };
