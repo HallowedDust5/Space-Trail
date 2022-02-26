@@ -16,7 +16,6 @@ class UIScene extends BaseScene{
         // Loads icons
         Object.keys(stats.resources).forEach(key => {
             this.load.image(`${key}-icon`,`assets/sprites/${key}-icon.png`);
-            console.log(`${key}-icon.png`);
         });
 
 
@@ -29,9 +28,10 @@ class UIScene extends BaseScene{
         const GAME_HEIGHT = this.sys.game.config.height;
         const INV_BKG_RECT_WIDTH = GAME_WIDTH*(6/33.3);
         const INV_BKG_RECT_HEIGHT = GAME_HEIGHT*(2/25);
+        const INV_SUPPLY_TEXT_CONFIG = {font:'10px',fill:"#000"};
 
         obj.inv_bkg_rects = [];
-        obj.inv_title_text = [];
+        obj.inv_supply_text = [];
         obj.inv_count = {};
         obj.inv_icons = [];
 
@@ -49,7 +49,7 @@ class UIScene extends BaseScene{
 
 
 
-        //Create inv title 
+        //Create inv title background
         obj.inv_bkg_rects.push(
             this.add.rectangle(
                 2,
@@ -73,10 +73,6 @@ class UIScene extends BaseScene{
                     0xffffff
                 ).setOrigin(0,0)
             );
-    
-    
-    
-            
         }
         
 
@@ -86,25 +82,55 @@ class UIScene extends BaseScene{
         INVENTORY TITLES TEXT
         */
 
-        let titles = ['INVENTORY'];
-        
-        titles.push(...Object.keys(this.stats.resources));
+        let rect = obj.inv_bkg_rects[0];
+        obj.inv_title = this.add.text(
+            rect.x+rect.width/2,
+            rect.y+rect.height/2,
+            'INVENTORY',
+            INV_SUPPLY_TEXT_CONFIG
+        ).setOrigin(.5,.5);
 
-        for (let i = 0; i < obj.inv_bkg_rects.length; i++) {
-            let rect = obj.inv_bkg_rects[i];
-            let title = titles[i];
 
-            obj.inv_title_text.push(
+
+        let supply_text = [];
+        supply_text.push(...Object.keys(this.stats.resources));
+
+        let supply_text_bkg_rects = obj.inv_bkg_rects.slice(1);
+
+        for (let i = 0; i < supply_text_bkg_rects.length; i++) {
+            let rect = supply_text_bkg_rects[i];
+            let title = supply_text[i];
+            
+            obj.inv_supply_text.push(
                 this.add.text(
                     rect.x+rect.width*(3/5),
                     rect.y+rect.height/2,
                     title,
-                    {font:'10px',fill:"#000"}
-                ).setOrigin(.5,.5)
+                    INV_SUPPLY_TEXT_CONFIG
+                    )
+                    .setOrigin(.5,.5)
             );
         }
 
 
+        /*
+         *INVENTORY COUNT 
+         */
+
+        for (let i = 0; i < obj.inv_supply_text.length; i++) {
+            const inv_supply_text = obj.inv_supply_text[i];
+            const key = inv_supply_text.text;
+
+            obj.inv_count[key] = this.add.text(
+                inv_supply_text.x+35,
+                inv_supply_text.y,
+                this.stats.resources[key],
+                INV_SUPPLY_TEXT_CONFIG
+            )
+                .setOrigin(.5,.5);
+
+            
+        }
 
 
 
@@ -187,11 +213,14 @@ class UIScene extends BaseScene{
          * NEXT TURN
          */
 
-        const updateWeek = ()=>{
-            this.game.scene.scenes
-                .filter(x=>x.key===new UIScene().key)[0]
-                .objects.week_counter
+        const updateUI = () => {
+            obj.week_counter
                 .setText(`WEEK\n${this.stats.week_counter}/${this.stats.max_weeks}`);
+
+            //Updates the count
+            for (const supply_text_key in obj.inv_count) {
+                obj.inv_count[supply_text_key].setText(this.stats.resources[supply_text_key]);
+            }
         }
 
         obj.next_turn_btn = createButton(
@@ -217,7 +246,7 @@ class UIScene extends BaseScene{
 
                 //Successful turn where 
                 this.stats.week_counter++;
-                updateWeek();
+                updateUI();
             },
         );
 
