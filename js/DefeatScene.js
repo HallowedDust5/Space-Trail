@@ -24,7 +24,7 @@ class DefeatScene extends BaseScene{
             GAME_HEIGHT/2,
             'Defeat',
             {font:'32px',
-            color:'0xFF0000'}
+            color:'#FF0000'}
         )
             .setOrigin(.5,.5);
 
@@ -34,9 +34,7 @@ class DefeatScene extends BaseScene{
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => {
-                this.registry.destroy(); // destroy registry
-                this.events.off(); // disable all active events
-                this.scene.restart(); // restart current scene
+                window.location.reload(true);
             });
 
 

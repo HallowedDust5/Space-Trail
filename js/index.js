@@ -28,7 +28,7 @@ const config = {
         new TitleScene(stats),
         new LaunchScene(stats),
         // new VictoryScene(stats),
-        // new DefeatScene(stats),
+        new DefeatScene(stats),
 
     ]
 };

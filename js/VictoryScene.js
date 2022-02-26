@@ -24,7 +24,7 @@ class VictoryScene extends BaseScene{
             GAME_HEIGHT/2,
             'Victory',
             {font:'32px',
-            color:'0x00FF00'}
+            color:'#00FF00'}
         )
             .setOrigin(.5,.5);
 
@@ -34,9 +34,7 @@ class VictoryScene extends BaseScene{
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => {
-                this.registry.destroy(); // destroy registry
-                this.events.off(); // disable all active events
-                this.scene.restart(); // restart current scene
+                window.location.reload(true);
             });
 
 
