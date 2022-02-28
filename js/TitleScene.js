@@ -7,7 +7,7 @@ class TitleScene extends BaseScene{
 
     preload(){
 
-        this.load.image('stars-bg','../assets/sprites/starsbackgroundtest.png');
+        this.load.image('stars-bg','assets/sprites/starsbackgroundtest.png');
 
 
     }
