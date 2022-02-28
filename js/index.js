@@ -10,6 +10,7 @@ var stats = {
         water:1,
     },
     astronauts:5,
+    max_astronauts:5,
     week_counter:0,
     max_weeks:30,
 
@@ -24,7 +25,7 @@ const config = {
     scene: [
         //Title screen goes here
         new UIScene(stats),
-        // new O2Event(stats),
+        new O2Event(stats),
         new TitleScene(stats),
         new LaunchScene(stats),
         // new VictoryScene(stats),

@@ -29,6 +29,8 @@ class UIScene extends BaseScene{
         const INV_BKG_RECT_WIDTH = GAME_WIDTH*(6/33.3);
         const INV_BKG_RECT_HEIGHT = GAME_HEIGHT*(2/25);
         const INV_SUPPLY_TEXT_CONFIG = {font:'10px',fill:"#000"};
+        const LIVES_TEXT_CONFIG = {font:'32px',fill:"#fff",backgroundColor:'#000'};
+
 
         obj.inv_bkg_rects = [];
         obj.inv_supply_text = [];
@@ -56,6 +58,13 @@ class UIScene extends BaseScene{
         this.renderNextTurnBtn(obj, GAME_WIDTH, GAME_HEIGHT);
 
 
+
+        this.add.text(
+            obj.lives_bkg.x,
+            obj.lives_bkg.y,
+            'LIVES',
+            LIVES_TEXT_CONFIG
+        ).setOrigin(0,1)
     
     }
 
@@ -259,7 +268,7 @@ class UIScene extends BaseScene{
             width: obj.lives_bkg.width * (3 / 5),
         };
 
-        let image_height = (icon_rect.height - 20) / this.stats.astronauts;
+        let image_height = (icon_rect.height - 20) / this.stats.max_astronauts;
         for (let i = 0; i < this.stats.astronauts; i++) {
             obj.lives_icons.push(
                 this.add.rectangle(
@@ -271,6 +280,12 @@ class UIScene extends BaseScene{
                 ).setOrigin(0, 0)
             );
         }
+
+
+        
+
+
+
     }
 
 
