@@ -1,6 +1,13 @@
 let events = [
     O2Event,
-    // TitleScene,
+    ElectricalEvent,
+    LowTemperature,
+    BrokenCommandPanelEvent,
+    BrokenLightPanelEvent,
+    BrokenTemperatureGaugeEvent,
+    ElectricalEvent,
+    HoleInShipEvent,
+    SpaceSicknessEvent,
 ];
 
 function randInt(min, max) {
