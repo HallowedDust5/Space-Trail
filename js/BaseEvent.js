@@ -100,6 +100,7 @@ class BaseEvent extends BaseScene{
                 choice_btn_y,
                 btn.label,
                 this,
+
                 ()=>{
                     btn.onClick();
                     this.scene.remove(this.key);
