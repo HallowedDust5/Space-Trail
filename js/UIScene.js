@@ -15,7 +15,8 @@ class UIScene extends BaseScene{
 
         // Loads icons
         Object.keys(stats.resources).forEach(key => {
-            this.load.image(`${key}-icon`,`assets/${key}-icon.png`);
+            this.load.image(`${key}-icon`,`assets/sprites/${key}-icon.png`);
+            console.log(`${key}-icon.png`);
         });
 
 
@@ -31,6 +32,7 @@ class UIScene extends BaseScene{
 
         obj.inv_bkg_rects = [];
         obj.inv_title_text = [];
+        obj.inv_count = {};
         obj.inv_icons = [];
 
         obj.lives_bkg;
@@ -94,7 +96,7 @@ class UIScene extends BaseScene{
 
             obj.inv_title_text.push(
                 this.add.text(
-                    rect.x+rect.width/2,
+                    rect.x+rect.width*(3/5),
                     rect.y+rect.height/2,
                     title,
                     {font:'10px',fill:"#000"}
@@ -115,7 +117,7 @@ class UIScene extends BaseScene{
             const rect = obj.inv_bkg_rects[i+1];
             const key = Object.keys(stats.resources)[i]
             obj.inv_icons.push(
-                this.add.image(rect.x+(.3/6)*rect.width,rect.y+rect.height*.5,`${key}-icon.png`)
+                this.add.image(rect.x+(.3/6)*rect.width,rect.y+rect.height*.5,`${key}-icon`)
                     .setOrigin(0,.5)
             );
             
