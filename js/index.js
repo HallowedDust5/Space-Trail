@@ -25,7 +25,7 @@ const config = {
         //Title screen goes here
         //new O2Event(stats)
         // new ElectricalEvent(stats)
-        new LowTemperature(stats)
+        new LowTemperature(stats),
         // new LaunchScene(stats), 
         // new UIScene(stats),
         // new O2Event(stats),
