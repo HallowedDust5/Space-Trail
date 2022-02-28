@@ -23,14 +23,21 @@ const config = {
     pixelArt:true,
 
     scene: [
-        //Title screen goes here
-        new UIScene(stats),
-        new O2Event(stats),
         new TitleScene(stats),
-        new LaunchScene(stats),
+        // new O2Event(stats),
+        // new ElectricalEvent(stats),
+        // new LowTemperature(stats),
+        // new BrokenCommandPanelEvent(stats),
+        // new BrokenLightPanelEvent(stats),
+        // new BrokenTemperatureGaugeEvent(stats),
+        // new ElectricalEvent(stats),
+        new HoleInShipEvent(stats),
+        // new SpaceSicknessEvent(stats),
+        new LaunchScene(stats), 
+        // new UIScene(stats),
+        // new LaunchScene(stats),
         // new VictoryScene(stats),
         new DefeatScene(stats),
-
     ]
 };
 

@@ -1,17 +1,23 @@
-class LaunchScene extends BaseScene{
+class LaunchScene extends Phaser.Scene{
 
     /**
      * 
      * @param {Object} stats Pass the global stats objects through 
      */
     constructor(stats){
-        super(stats,'launch');
+        super({key:'launch scene'});
+        this.key = 'launch scene';
+        this.stats = stats;
     }
 
     preload(){
         /*
         Load needed assets here
         */ 
+       
+
+        this.objects = {};
+
 
     }
 
@@ -21,6 +27,7 @@ class LaunchScene extends BaseScene{
         const GAME_WIDTH = this.sys.game.config.width; 
 
         const MAX_RESOURCE = 10;
+
         const MAX_SUM_RESOURCE = 30; //Max num of resources, when all resources are summed up
 
         const sum = arr =>{
@@ -52,9 +59,11 @@ class LaunchScene extends BaseScene{
 
         let stats_buttons = {}; //Array of OnClicks for the stats buttons
         //Makes the stats buttons
+
         first_stat_x = obj.backRect.x - obj.backRect.x/1.8;
         for (const key in this.stats.resources) {
             
+
             //onClick Functions
             let plus = ()=>{
                 if(this.stats.resources[key]>=MAX_RESOURCE){return;}//Stops if it's at MAX_RESOURCE
@@ -72,9 +81,11 @@ class LaunchScene extends BaseScene{
             
             //Makes the label, plus and minus buttons 
             stats_buttons[key] = {
+
                 label:this.add.text(first_stat_x,obj.backRect.y-obj.backRect.y/11,`${key}:${this.stats.resources[key]}`,).setOrigin(.5,.5),
                 plus:createButton(first_stat_x,obj.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
                 minus:createButton(first_stat_x,obj.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
+
             }
 
             //Increments each tools' x coord
