@@ -22,7 +22,7 @@ const config = {
     pixelArt:true,
 
     scene: [
-        // new TitleScene(stats),
+        new TitleScene(stats),
         // new O2Event(stats),
         // new ElectricalEvent(stats),
         // new LowTemperature(stats),
