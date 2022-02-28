@@ -1,4 +1,4 @@
-class HoleInShipEvent extends BaseEvent {
+class SpaceSicknessEvent extends BaseEvent {
 
     // asset needed
     constructor (stats) {
