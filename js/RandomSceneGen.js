@@ -1,7 +1,6 @@
 let events = [
     O2Event,
-    LaunchScene,
-    //Add other events here
+    // TitleScene,
 ];
 
 function randInt(min, max) {
@@ -17,7 +16,7 @@ function randScene(scene) {
         chosen_scene.key, //Gets random scene's key
         scene.stats //Gives the stats object to pass into the next scene
         );
-        events.splice(rand_index);
+        // events.splice(rand_index);
 
         return chosen_scene;
 }

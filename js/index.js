@@ -3,13 +3,14 @@
 
 var stats = {
     resources:{
-        food:0,
-        tools:0,
-        medicine:0,
-        oxygen:0,
-        water:0,
+        food:1,
+        tools:1,
+        medicine:1,
+        oxygen:1,
+        water:1,
     },
     astronauts:5,
+    max_astronauts:5,
     week_counter:0,
     max_weeks:30,
 
