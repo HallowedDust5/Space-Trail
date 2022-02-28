@@ -1,5 +1,9 @@
 class BrokenCommandPanelEvent extends BaseEvent {
 
+    /**
+     * @constructor
+     * @param {Object} stats Global stats object
+     */
     // asset needed
     constructor (stats) {
         super(stats, 'Broken Command Panel', '', 'The command panel has broken', 'The command panel is broken and you cannot\n control the ship or contact Earth.\n Use two spare parts to fix it.',

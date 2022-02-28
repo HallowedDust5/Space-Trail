@@ -1,5 +1,8 @@
 class LowTemperature extends BaseEvent {
-
+    /**
+     * @constructor
+     * @param {Object} stats Global stats object
+     */
     constructor (stats) {
         super(stats, 'Low Temperature', 'assets/sprites/Snowthumbnail.png', 'the temperature is very low', '\t\tthe temperature has reached exceedingly\n\t\t\tlow levels. Lose one canister of water,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tor let an astronaut die.',
         [
