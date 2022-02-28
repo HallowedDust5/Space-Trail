@@ -22,7 +22,7 @@ const config = {
     pixelArt:true,
 
     scene: [
-        new TitleScene(stats),
+        // new TitleScene(stats),
         // new O2Event(stats),
         // new ElectricalEvent(stats),
         // new LowTemperature(stats),
@@ -30,7 +30,7 @@ const config = {
         // new BrokenLightPanelEvent(stats),
         // new BrokenTemperatureGaugeEvent(stats),
         // new ElectricalEvent(stats),
-        // new HoleInShipEvent(stats),
+        new HoleInShipEvent(stats),
         // new SpaceSicknessEvent(stats),
         new LaunchScene(stats), 
         // new UIScene(stats),
