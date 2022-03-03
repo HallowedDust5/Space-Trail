@@ -99,27 +99,7 @@ class LaunchScene extends Phaser.Scene{
             'NEXT',
             this,
             ()=>{
-
-                this.game.scene.scenes
-                .filter(x=>x.key===new UIScene().key)[0]
-
-                if (Object.values(this.stats.resources).some(x=>x<1)) {
-                    /*
-                     * Tear down all scenes and give loss screen
-                     */
-                    console.log('not enough resources');
-                    return;
-                }
-
-                else if(this.stats.week_counter===this.stats.max_weeks){
-                    //Tear down all scenes and give the win screen
-                    console.log('Reached max weeks');
-                    return;
-                }
-
-                //Successful turn where 
-                this.stats.week_counter++;
-                updateWeek();
+                this.scene.start(new UIScene().key,this.stats);
             },
         );
 

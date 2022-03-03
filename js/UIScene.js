@@ -18,7 +18,7 @@ class UIScene extends BaseScene{
             this.load.image(`${key}-icon`,`assets/sprites/${key}-icon.png`);
         });
 
-
+        this.load.image('space-bkg','assets/sprites/starsbackgroundtest.png');
 
     }
 
@@ -43,6 +43,8 @@ class UIScene extends BaseScene{
 
         obj.next_turn_btn;
 
+        this.add.image(0,0,'space-bkg').setOrigin()
+
         this.renderInvBkgs(obj, INV_BKG_RECT_WIDTH, INV_BKG_RECT_HEIGHT);
         
         this.renderInvText(obj, INV_SUPPLY_TEXT_CONFIG);
@@ -66,6 +68,8 @@ class UIScene extends BaseScene{
             LIVES_TEXT_CONFIG
         ).setOrigin(0,1)
     
+
+        randScene(this);
     }
 
     /**
