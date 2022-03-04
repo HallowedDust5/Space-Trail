@@ -42,8 +42,18 @@ class UIScene extends BaseScene{
         obj.lives_title;
 
         obj.next_turn_btn;
+        obj.instructions = [];
+        
 
-        this.add.image(0,0,'starfield-bg')
+
+        
+        
+        
+
+
+
+
+        obj.bkg = this.add.image(0,0,'starfield-bg')
             .setScale(.5)
             .setOrigin(0,0);
 
@@ -61,17 +71,19 @@ class UIScene extends BaseScene{
 
         this.renderNextTurnBtn(obj, GAME_WIDTH, GAME_HEIGHT);
 
-
-
-        this.add.text(
+        obj.lives_title = this.add.text(
             obj.lives_bkg.x,
             obj.lives_bkg.y,
             'LIVES',
             LIVES_TEXT_CONFIG
         ).setOrigin(0,1)
-    
 
-        randScene(this);
+        
+
+
+
+
+    
     }
 
     /**
@@ -134,24 +146,42 @@ class UIScene extends BaseScene{
             'NEXT',
             this,
             () => {
-                randScene(this);
-                if (Object.values(this.stats.resources).some(x => x < 1)) {
-                    /*
-                     * Tear down all scenes and give loss screen
-                     */
-                    console.log('not enough resources');
-                    return;
-                }
 
-                else if (this.stats.week_counter === this.stats.max_weeks) {
-                    //Tear down all scenes and give the win screen
-                    console.log('Reached max weeks');
-                    return;
-                }
+                //Goes to the next turn only if the falg is raised that it can
+                if(this.stats.next_turn_flag===true){
+                    randScene(this);
+                    if (Object.values(this.stats.resources).some(x => x < 1)) {
+                        /*
+                        * Tear down all scenes and give loss screen
+                        */
+                        console.log('not enough resources');
+                        return;
+                    }
 
-                //Successful turn where 
-                this.stats.week_counter++;
-                updateUI();
+                    else if (this.stats.week_counter === this.stats.max_weeks) {
+                        //Tear down all scenes and give the win screen
+                        console.log('Reached max weeks');
+                        return;
+                    }
+
+                    //Successful turn where 
+                    this.stats.week_counter++;
+                    updateUI();
+                    this.stats.next_turn_flag = false;
+                }
+                else{
+                    obj.instructions.push(
+                        this.add.text( GAME_WIDTH/2,GAME_HEIGHT/4, 'Choose an option before continuing',)
+                            .setOrigin(.5,.5)
+                    );
+
+                      setTimeout(() => {
+                          obj.instructions.forEach(text => {
+                              text.destroy();
+                          });
+                      }, 3*1000);
+
+                }
             }
         );
     }
