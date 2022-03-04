@@ -7,7 +7,7 @@ class TitleScene extends BaseScene{
 
     preload(){
 
-        this.load.image('stars-bg','assets/sprites/starsbackgroundtest.png');
+        this.load.image('title-bg','assets/sprites/titlescreen.png');
 
 
     }
@@ -19,11 +19,12 @@ class TitleScene extends BaseScene{
         let obj = this.objects;
 
 
-        obj.bkg = this.add.image(0,0,'stars-bg')
-            .setScale(2);
+        obj.bkg = this.add.image(0,0,'title-bg')
+            .setOrigin(0,0);
+            
         obj.title_text = this.add.text(
             GAME_WIDTH/2,
-            (4/5)*GAME_HEIGHT,
+            (7/10)*GAME_HEIGHT,
             'Click anywhere to start',
             {font:'32px'}
         )
@@ -39,8 +40,8 @@ class TitleScene extends BaseScene{
             });
         
         obj.credits_trigger = createButton(
-            (19/20)*GAME_WIDTH,
-            (19/20)*GAME_HEIGHT,
+            GAME_WIDTH/2,
+            (4/5)*GAME_HEIGHT,
             'Credits',
             this,
             (scene)=>{
@@ -51,7 +52,7 @@ class TitleScene extends BaseScene{
             '#ffffff',
 
         )
-            .setOrigin(1,1);
+            .setOrigin(.5,.5);
 
     }
 

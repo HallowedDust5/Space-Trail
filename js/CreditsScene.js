@@ -7,6 +7,8 @@ class CreditsScene extends BaseScene{
 
     preload(){
 
+        this.load.image('credits-bg','assets/sprites/creditsscreen.png');
+
     }
 
     create(){
@@ -15,13 +17,23 @@ class CreditsScene extends BaseScene{
 
         let obj = this.objects;
 
-        obj.credits_text = this.add.text(
-            GAME_WIDTH/2,
-            GAME_HEIGHT/10,
-            'CREDITS',
-            {font:'32px'}
+        obj.bkg = this.add.image(0,0,'credits-bg')
+            .setOrigin(0,0);
+
+        obj.credits_trigger = createButton(
+            GAME_WIDTH/20,
+            (19/20)*GAME_HEIGHT,
+            'Title Screen',
+            this,
+            (scene)=>{
+                scene.scene.start(new TitleScene().key,this.stats);
+            },
+            null,
+            undefined,
+            '#ffffff',
+
         )
-            .setOrigin(.5,.5);
+            .setOrigin(0,1);
 
 
 
