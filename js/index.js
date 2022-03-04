@@ -13,6 +13,7 @@ var stats = {
     max_astronauts:5,
     week_counter:0,
     max_weeks:30,
+    next_turn_flag:false,
 
 };
 

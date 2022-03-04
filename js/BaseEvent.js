@@ -104,8 +104,8 @@ class BaseEvent extends BaseScene{
 
                 ()=>{
                     btn.onClick();
+                    this.stats.next_turn_flag = true;
                     this.scene.remove(this.key);
-
                 },
                 undefined,
                 '15px Arial'
