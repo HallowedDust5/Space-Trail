@@ -43,8 +43,18 @@ class UIScene extends BaseScene{
 
         obj.next_turn_btn;
         obj.instructions = [];
+        
+        obj.layer = this.add.layer();
 
-        this.add.image(0,0,'space-bkg').setOrigin(0,0)
+
+        
+        
+        
+
+
+
+
+        obj.bkg = this.add.image(0,0,'space-bkg').setOrigin(0,0);
 
         this.renderInvBkgs(obj, INV_BKG_RECT_WIDTH, INV_BKG_RECT_HEIGHT);
         
@@ -60,17 +70,29 @@ class UIScene extends BaseScene{
 
         this.renderNextTurnBtn(obj, GAME_WIDTH, GAME_HEIGHT);
 
-
-
-        this.add.text(
+        obj.lives_title = this.add.text(
             obj.lives_bkg.x,
             obj.lives_bkg.y,
             'LIVES',
             LIVES_TEXT_CONFIG
         ).setOrigin(0,1)
-    
 
-        randScene(this);
+        
+        obj.layer.add(obj.bkg);
+        obj.layer.add(obj.inv_bkg_rects);
+        obj.layer.add(Object.values(obj.inv_count));
+        obj.layer.add(obj.inv_icons);
+        obj.layer.add(obj.inv_supply_text);
+        obj.layer.add(obj.inv_title);
+        obj.layer.add(obj.lives_bkg);
+        obj.layer.add(obj.lives_icons);
+        obj.layer.add(obj.lives_title);
+        obj.layer.add(obj.next_turn_btn);
+        obj.layer.add(obj.week_counter);
+
+
+
+    
     }
 
     /**

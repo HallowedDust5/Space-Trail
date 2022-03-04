@@ -114,7 +114,7 @@ class BaseEvent extends BaseScene{
         }
 
 
-
+        this.scene.bringToTop();
         this.createAddOn();
     }
     
