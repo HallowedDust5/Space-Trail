@@ -1,4 +1,4 @@
-class LowTemperature extends BaseEvent {
+class LowTemperatureEvent extends BaseEvent {
     /**
      * @constructor
      * @param {Object} stats Global stats object

@@ -1,7 +1,7 @@
 let events = [
     O2Event,
     ElectricalEvent,
-    LowTemperature,
+    LowTemperatureEvent,
     BrokenCommandPanelEvent,
     BrokenLightPanelEvent,
     BrokenTemperatureGaugeEvent,
