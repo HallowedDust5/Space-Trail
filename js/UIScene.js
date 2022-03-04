@@ -80,7 +80,7 @@ class UIScene extends BaseScene{
 
         
 
-
+        randScene(this);
 
 
     

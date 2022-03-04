@@ -112,7 +112,6 @@ class BaseEvent extends BaseScene{
             );
         }
 
-
         this.createAddOn();
     }
     

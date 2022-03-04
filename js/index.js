@@ -14,7 +14,6 @@ var stats = {
     week_counter:0,
     max_weeks:30,
     next_turn_flag:false,
-
 };
 
 const config = {
