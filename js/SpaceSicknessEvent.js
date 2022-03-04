@@ -5,13 +5,13 @@ class SpaceSicknessEvent extends BaseEvent {
      */
     // asset needed
     constructor (stats) {
-        super(stats, 'Space Sickness', 'assets/sprites/spacesickness.png', 'You have space sickness', 'You have been nauseous, due to the fact\n that you are suffering from space sickness.\n Use one medicine to cure it.',
+        super(stats, 'Space Sickness', 'spacesickness', 'You have space sickness', 'You have been nauseous, due to the fact\n that you are suffering from space sickness.\n Use one medicine to cure it.',
         [
             {label: 'Take\n Medicine', onClick:()=>{
                 this.stats.resources.medicine--;
             }},
             {label: 'Continue and let\n an astronaut die', onClick: ()=>{
-                this.stats.resources.astronauts--;
+                this.stats.astronauts--;
             }}
         ]
         )

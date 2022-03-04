@@ -24,22 +24,21 @@ const config = {
 
     scene: [
         new TitleScene(stats),
-        new O2Event(stats),
-        new ElectricalEvent(stats),
-        new LowTemperature(stats),
+        new ImageRenderScene(stats),
         new BrokenCommandPanelEvent(stats),
         new BrokenLightPanelEvent(stats),
         new BrokenTemperatureGaugeEvent(stats),
-        new ElectricalEvent(stats),
-        new HoleInShipEvent(stats),
-        new SpaceSicknessEvent(stats),
-        new LaunchScene(stats), 
-        new UIScene(stats),
-        new LaunchScene(stats),
-        new VictoryScene(stats),
         new DefeatScene(stats),
         new CreditsScene(stats),
+        new ElectricalEvent(stats),
         new ExpositionScene(stats),
+        new HoleInShipEvent(stats),
+        new LaunchScene(stats),
+        new LowTemperature(stats),
+        new O2Event(stats),
+        new SpaceSicknessEvent(stats),
+        new UIScene(stats),
+        new VictoryScene(stats),
     ]
 };
 

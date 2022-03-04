@@ -154,15 +154,17 @@ class UIScene extends BaseScene{
                     );
                     randScene(this);
                     if (Object.values(this.stats.resources).some(x => x < 1)) {
-                        /*
-                        * Tear down all scenes and give loss screen
-                        */
+                        
+                        this.scene.start(new DefeatScene().key,this.stats);
+
                         console.log('not enough resources');
                         return;
                     }
 
                     else if (this.stats.week_counter === this.stats.max_weeks) {
-                        //Tear down all scenes and give the win screen
+                        
+                        this.scene.start(new VictoryScene().key,this.stats);
+
                         console.log('Reached max weeks');
                         return;
                     }
@@ -170,7 +172,7 @@ class UIScene extends BaseScene{
                     //Successful turn where 
                     this.stats.week_counter++;
                     updateUI();
-                    this.stats.next_turn_flag = false;
+                    this.stats.next_turn_flag = !this.stats.next_turn_flag;
                 }
                 else{
                     obj.instructions.push(
