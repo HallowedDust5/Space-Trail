@@ -7,9 +7,7 @@ class VictoryScene extends BaseScene{
 
     preload(){
 
-        /*
-        Load needed assets here
-        */ 
+        this.load.image('victory-bg','assets/sprites/winscreen.png');
 
     }
 
@@ -19,16 +17,8 @@ class VictoryScene extends BaseScene{
 
         let obj = this.objects;
 
-        obj.title_text = this.add.text(
-            GAME_WIDTH/2,
-            GAME_HEIGHT/2,
-            'Victory',
-            {font:'32px',
-            color:'#00FF00'}
-        )
-            .setOrigin(.5,.5);
-
-        
+        obj.bkg = this.add.image(0,0,'victory-bg')
+            .setOrigin(0,0);
 
         obj.trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
             .setOrigin(0,0)

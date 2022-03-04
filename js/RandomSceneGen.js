@@ -29,7 +29,9 @@ function randScene(scene) {
         scene.stats //Gives the stats object to pass into the next scene
         );
 
+        // events.splice(rand_index);
+        
+    scene.scene.moveAbove(scene.key,chosen_scene.key);
 
-    return bruh;
-
+    return chosen_scene;
 }
