@@ -36,7 +36,7 @@ class TitleScene extends BaseScene{
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => {
-                this.scene.start(new LaunchScene().key,this.stats);
+                this.scene.start(new ExpositionScene().key,this.stats);
             });
         
         obj.credits_trigger = createButton(

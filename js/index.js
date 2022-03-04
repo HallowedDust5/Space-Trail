@@ -39,6 +39,7 @@ const config = {
         new VictoryScene(stats),
         new DefeatScene(stats),
         new CreditsScene(stats),
+        new ExpositionScene(stats),
     ]
 };
 
