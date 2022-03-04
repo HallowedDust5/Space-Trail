@@ -3,13 +3,14 @@
 
 var stats = {
     resources:{
-        food:0,
-        tools:0,
-        medicine:0,
-        oxygen:0,
-        water:0,
+        food:1,
+        tools:1,
+        medicine:1,
+        oxygen:1,
+        water:1,
     },
     astronauts:5,
+    max_astronauts:5,
     week_counter:0,
     max_weeks:30,
 
@@ -22,15 +23,22 @@ const config = {
     pixelArt:true,
 
     scene: [
-        //Title screen goes here
-        // new UIScene(stats),
-        // new O2Event(stats),
         new TitleScene(stats),
+        new O2Event(stats),
+        new ElectricalEvent(stats),
+        new LowTemperature(stats),
+        new BrokenCommandPanelEvent(stats),
+        new BrokenLightPanelEvent(stats),
+        new BrokenTemperatureGaugeEvent(stats),
+        new ElectricalEvent(stats),
+        new HoleInShipEvent(stats),
+        new SpaceSicknessEvent(stats),
+        new LaunchScene(stats), 
+        new UIScene(stats),
         new LaunchScene(stats),
-        // new VictoryScene(stats),
-        // new DefeatScene(stats),
+        new VictoryScene(stats),
+        new DefeatScene(stats),
         new CreditsScene(stats),
-
     ]
 };
 
