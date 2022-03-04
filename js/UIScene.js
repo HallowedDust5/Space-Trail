@@ -152,27 +152,27 @@ class UIScene extends BaseScene{
                         Math.random()/2,
                         Math.random()/2,
                     );
-                    randScene(this);
-                    if (Object.values(this.stats.resources).some(x => x < 1)) {
-                        
-                        this.scene.start(new DefeatScene().key,this.stats);
+                if (Object.values(this.stats.resources).some(x => x < 1)) {
+                    
+                    this.scene.start(new DefeatScene().key,this.stats);
 
-                        console.log('not enough resources');
-                        return;
-                    }
+                    console.log('not enough resources');
+                    return;
+                }
 
-                    else if (this.stats.week_counter === this.stats.max_weeks) {
-                        
-                        this.scene.start(new VictoryScene().key,this.stats);
+                else if (this.stats.week_counter === this.stats.max_weeks) {
+                    
+                    this.scene.start(new VictoryScene().key,this.stats);
 
-                        console.log('Reached max weeks');
-                        return;
-                    }
+                    console.log('Reached max weeks');
+                    return;
+                }
 
-                    //Successful turn where 
-                    this.stats.week_counter++;
-                    updateUI();
-                    this.stats.next_turn_flag = !this.stats.next_turn_flag;
+                //Successful turn where
+                this.stats.week_counter++;
+                updateUI();
+                randScene(this);
+                this.stats.next_turn_flag = !this.stats.next_turn_flag;
                 }
                 else{
                     obj.instructions.push(

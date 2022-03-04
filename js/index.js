@@ -34,7 +34,7 @@ const config = {
         new ExpositionScene(stats),
         new HoleInShipEvent(stats),
         new LaunchScene(stats),
-        new LowTemperature(stats),
+        new LowTemperatureEvent(stats),
         new O2Event(stats),
         new SpaceSicknessEvent(stats),
         new UIScene(stats),
