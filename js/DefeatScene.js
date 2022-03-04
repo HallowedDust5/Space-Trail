@@ -19,7 +19,7 @@ class DefeatScene extends BaseScene{
 
         let obj = this.objects;
 
-        obj.title_text = this.add.text(
+        obj.defeat_text = this.add.text(
             GAME_WIDTH/2,
             GAME_HEIGHT/2,
             'Defeat',

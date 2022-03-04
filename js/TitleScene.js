@@ -23,7 +23,7 @@ class TitleScene extends BaseScene{
             .setScale(2);
         obj.title_text = this.add.text(
             GAME_WIDTH/2,
-            (7/8)*GAME_HEIGHT,
+            (4/5)*GAME_HEIGHT,
             'Click anywhere to start',
             {font:'32px'}
         )
@@ -31,14 +31,27 @@ class TitleScene extends BaseScene{
 
         
 
-        obj.trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
+        obj.start_trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => {
                 this.scene.start(new LaunchScene().key,this.stats);
             });
+        
+        obj.credits_trigger = createButton(
+            (19/20)*GAME_WIDTH,
+            (19/20)*GAME_HEIGHT,
+            'Credits',
+            this,
+            (scene)=>{
+                scene.scene.start(new CreditsScene().key,this.stats);
+            },
+            null,
+            undefined,
+            '#ffffff',
 
-
+        )
+            .setOrigin(1,1);
 
     }
 
