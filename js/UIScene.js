@@ -54,7 +54,6 @@ class UIScene extends BaseScene{
 
 
         obj.bkg = this.add.image(0,0,'starfield-bg')
-            .setScale(.5)
             .setOrigin(0,0);
 
         this.renderInvBkgs(obj, INV_BKG_RECT_WIDTH, INV_BKG_RECT_HEIGHT);
@@ -149,6 +148,10 @@ class UIScene extends BaseScene{
 
                 //Goes to the next turn only if the falg is raised that it can
                 if(this.stats.next_turn_flag===true){
+                    obj.bkg.setOrigin(
+                        Math.random()/2,
+                        Math.random()/2,
+                    );
                     randScene(this);
                     if (Object.values(this.stats.resources).some(x => x < 1)) {
                         /*
