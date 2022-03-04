@@ -18,7 +18,7 @@ class UIScene extends BaseScene{
             this.load.image(`${key}-icon`,`assets/sprites/${key}-icon.png`);
         });
 
-        this.load.image('space-bkg','assets/sprites/starsbackgroundtest.png');
+        this.load.image('starfield-bg','assets/sprites/starfield.png');
 
     }
 
@@ -43,7 +43,9 @@ class UIScene extends BaseScene{
 
         obj.next_turn_btn;
 
-        this.add.image(0,0,'space-bkg').setOrigin()
+        this.add.image(0,0,'starfield-bg')
+            .setScale(.5)
+            .setOrigin(0,0);
 
         this.renderInvBkgs(obj, INV_BKG_RECT_WIDTH, INV_BKG_RECT_HEIGHT);
         
