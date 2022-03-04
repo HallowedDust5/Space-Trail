@@ -22,8 +22,8 @@ class BaseEvent extends BaseScene{
         super(stats,key);
 
         let obj = this.objects;
-        // obj.img_path = img_path;
-        obj.img_path = 'assets/sprites/lowoxygen.png';
+        obj.img_path = img_path;
+        // obj.img_path = 'assets/sprites/lowoxygen.png';
         obj.event_title = event_title;
         obj.event_description = event_description;
         obj.choiceBtnConfig = choiceButtons;

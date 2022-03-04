@@ -5,7 +5,7 @@ class BrokenTemperatureGaugeEvent extends BaseEvent {
      */
     // asset needed
     constructor (stats) {
-        super(stats, 'Broken Temperature Gauge', '', 'The temperature gauge has broken', 'The temperature gauge is broken and\n you cannot control the ships temperature.\n Use one spare part to fix it.',
+        super(stats, 'Broken Temperature Gauge', 'assets/sprites/brokentemperaturegauge.png', 'The temperature gauge has broken', 'The temperature gauge is broken and\n you cannot control the ships temperature.\n Use one spare part to fix it.',
         [
             {label: 'Fix the\n Temperature Gauge', onClick:()=>{
                 this.stats.resources.tools-3;
