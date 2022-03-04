@@ -30,6 +30,7 @@ class TitleScene extends BaseScene{
         )
             .setOrigin(.5,.5);
 
+            this.scene.launch(new ImageRenderScene().key);
         
 
         obj.start_trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)

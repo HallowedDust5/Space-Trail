@@ -5,7 +5,7 @@ class BaseEvent extends BaseScene{
      * @abstract
      * @param {Object} stats global stats object
      * @param {string} key key that the scene will be referenced by in the Phaser API
-     * @param {string} img_path path to the event image. The key of this asset is event-image
+     * @param {string} img_id path to the event image. The key of this asset is event-image
      * @param {string} event_title Title of the event, in between event image and description
      * @param {string} event_description Description of event, below title and above choice options
      * @param {Array} choiceButtons list of objects, each object having label and onClick as mandatory parameters. All . backgroundColor, font, color, and hoverColor are all optional.
@@ -18,19 +18,18 @@ class BaseEvent extends BaseScene{
      *   ...
      * ]
      */
-    constructor(stats,key,img_path, event_title='', event_description='',choiceButtons=[]){
+    constructor(stats,key,img_id, event_title='', event_description='',choiceButtons=[]){
         super(stats,key);
 
         let obj = this.objects;
-        obj.img_path = img_path;
-        // obj.img_path = 'assets/sprites/lowoxygen.png';
+        obj.img_id = img_id;
+        // obj.img_id = 'assets/sprites/lowoxygen.png';
         obj.event_title = event_title;
         obj.event_description = event_description;
         obj.choiceBtnConfig = choiceButtons;
     }
 
     preload(){
-        this.load.image('event-image',this.objects.img_path);
     }
 
     createAddOn(){
@@ -54,7 +53,7 @@ class BaseEvent extends BaseScene{
         CREATES EVENT IMAGE
         */
 
-        obj.event_image = this.add.image(BACKRECT_X+WIDTH/2,BACKRECT_Y+HEIGHT/3.4,'event-image')
+        obj.event_image = this.add.image(BACKRECT_X+WIDTH/2,BACKRECT_Y+HEIGHT/3.4,obj.img_id)
         .setScale(4.5,4);
 
 
@@ -103,7 +102,7 @@ class BaseEvent extends BaseScene{
                 this,
                 ()=>{
                     btn.onClick();
-                    this.stats.next_turn_flag = true;
+                    this.stats.next_turn_flag = !this.stats.next_turn_flag;
                     this.scene.remove(this.key);
                 },
                 undefined,

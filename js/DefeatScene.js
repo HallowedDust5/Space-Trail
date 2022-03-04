@@ -20,6 +20,14 @@ class DefeatScene extends BaseScene{
         obj.bkg = this.add.image(0,0,'defeat-bg')
             .setOrigin(0,0);
 
+        obj.restart_text = this.add.text(
+            GAME_WIDTH/2,
+            (9/10)*GAME_HEIGHT,
+            'Click anywhere to restart',
+            {font:'32px'}
+        )
+            .setOrigin(.5,.5);
+
         obj.trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })

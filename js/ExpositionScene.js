@@ -21,7 +21,7 @@ class ExpositionScene extends BaseScene{
         obj.bkg = this.add.image(0,0,'expo-bg')
             .setOrigin(0,0);
 
-        obj.title_text = this.add.text(
+        obj.continue_text = this.add.text(
             GAME_WIDTH/2,
             (9/10)*GAME_HEIGHT,
             'Click anywhere to continue',
@@ -29,7 +29,7 @@ class ExpositionScene extends BaseScene{
         )
             .setOrigin(.5,.5);
 
-        obj.start_trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
+        obj.launch_trigger = this.add.rectangle(0,0,GAME_WIDTH,GAME_HEIGHT)
             .setOrigin(0,0)
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => {
