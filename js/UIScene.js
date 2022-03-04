@@ -43,6 +43,7 @@ class UIScene extends BaseScene{
 
         obj.next_turn_btn;
         obj.instructions = [];
+        obj.last_scene;
         
 
 
@@ -79,7 +80,7 @@ class UIScene extends BaseScene{
 
         
 
-        randScene(this);
+        obj.last_scene = randScene(this,null);
 
 
     
@@ -171,7 +172,7 @@ class UIScene extends BaseScene{
                     //Successful turn where 
                     this.stats.week_counter++;
                     updateUI();
-                    randScene(this);
+                    obj.last_scene = randScene(this,obj.last_scene);
                     this.stats.next_turn_flag = !this.stats.next_turn_flag;
                 }
                 else{
