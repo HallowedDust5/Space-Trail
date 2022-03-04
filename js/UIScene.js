@@ -44,7 +44,6 @@ class UIScene extends BaseScene{
         obj.next_turn_btn;
         obj.instructions = [];
         
-        obj.layer = this.add.layer();
 
 
         
@@ -78,17 +77,7 @@ class UIScene extends BaseScene{
         ).setOrigin(0,1)
 
         
-        obj.layer.add(obj.bkg);
-        obj.layer.add(obj.inv_bkg_rects);
-        obj.layer.add(Object.values(obj.inv_count));
-        obj.layer.add(obj.inv_icons);
-        obj.layer.add(obj.inv_supply_text);
-        obj.layer.add(obj.inv_title);
-        obj.layer.add(obj.lives_bkg);
-        obj.layer.add(obj.lives_icons);
-        obj.layer.add(obj.lives_title);
-        obj.layer.add(obj.next_turn_btn);
-        obj.layer.add(obj.week_counter);
+
 
 
 
