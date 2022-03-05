@@ -104,7 +104,8 @@ class BaseEvent extends BaseScene{
                     btn.onClick();
                     this.stats.next_turn_flag = !this.stats.next_turn_flag;
                     this.scene.restart();
-                    this.scene.remove(this.key);
+                    // this.scene.remove(this.key);
+                    this.scene.sleep(this.key);
                 },
                 null,
                 '12px',
