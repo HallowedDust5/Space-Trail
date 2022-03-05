@@ -42,7 +42,7 @@ class BaseEvent extends BaseScene{
         const GAME_HEIGHT = this.sys.game.config.height;
         const GAME_WIDTH = this.sys.game.config.width;
         let obj = this.objects;
-        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH*2/5,GAME_HEIGHT*3/5,0x23d5f1);
+        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH*2/5,GAME_HEIGHT*3/5,0x555a59);
         const HEIGHT = obj.backRect.height;
         const WIDTH = obj.backRect.width;
         const BACKRECT_X = obj.backRect.x-WIDTH/2;
@@ -79,7 +79,7 @@ class BaseEvent extends BaseScene{
             obj.event_description,
         )
         .setOrigin(.5,.5)
-        .setStyle({font:'15px Arial'})
+        .setStyle({font:'15px'})
 
 
 
@@ -90,7 +90,7 @@ class BaseEvent extends BaseScene{
         */
         obj.choiceBtns = [];
         const first_btn_x = WIDTH*1.5/8+BACKRECT_X;
-        const dist_btwn_btns = WIDTH*2.5/8;
+        const dist_btwn_btns = WIDTH*2/5;
         const choice_btn_y = BACKRECT_Y+HEIGHT *7/8;
         for (let i = 0; i < obj.choiceBtnConfig.length; i++) {
             let btn = obj.choiceBtnConfig[i];
@@ -106,8 +106,9 @@ class BaseEvent extends BaseScene{
                     this.scene.restart();
                     this.scene.remove(this.key);
                 },
-                undefined,
-                '12px'
+                null,
+                '12px',
+                '#a5afad',
                 )
             );
         }

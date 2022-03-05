@@ -14,7 +14,7 @@ function createButton(x, y, label, scene, onClick, backgroundColor = '#ffffff', 
 
     let button = scene.add.text(x, y, label)
         .setOrigin(.5, .5)
-        .setStyle({ backgroundColor, font, fill: color })
+        .setStyle({ backgroundColor, font, fill: color, align:'center'})
         .setInteractive({ useHandCursor: true })
         .on('pointerdown', () => onClick(scene))
         .on('pointerover', () => button.setStyle({ fill: hoverColor }))
