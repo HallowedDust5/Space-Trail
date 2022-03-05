@@ -3,11 +3,11 @@
 
 var stats = {
     resources:{
-        food:1,
-        tools:1,
-        medicine:1,
-        oxygen:1,
-        water:1,
+        food:6,
+        tools:6,
+        medicine:6,
+        oxygen:6,
+        water:6,
     },
     astronauts:5,
     max_astronauts:5,
