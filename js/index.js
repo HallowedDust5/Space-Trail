@@ -12,7 +12,7 @@ var stats = {
     astronauts:5,
     max_astronauts:5,
     week_counter:0,
-    max_weeks:30,
+    max_weeks:15,
     next_turn_flag:false,
 };
 
