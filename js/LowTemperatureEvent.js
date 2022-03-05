@@ -4,7 +4,7 @@ class LowTemperatureEvent extends BaseEvent {
      * @param {Object} stats Global stats object
      */
     constructor (stats) {
-        super(stats, 'Low Temperature', 'lowtemperature', 'the temperature is very low', '\t\tthe temperature has reached exceedingly\n\t\t\tlow levels. Lose one canister of water,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tor let an astronaut die.',
+        super(stats, 'Low Temperature', 'lowtemperature', 'the temperature is very low', 'The temperature has reached\nexceedingly low levels. Lose one\ncanister of water, or let an\nastronaut die.',
         [
             {label: '\tLose a \n canister\n of water', onClick:()=>{
                 this.stats.resources.water--;

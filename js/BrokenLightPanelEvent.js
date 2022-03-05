@@ -6,7 +6,7 @@ class BrokenLightPanelEvent extends BaseEvent {
      */
     // asset needed
     constructor (stats) {
-        super(stats, 'Broken Light Panel', 'brokenlightpanel', 'The light panels have broken', 'The light panels have broken\n and you cannot see without\n the lights on. use two spare parts to fix it.',
+        super(stats, 'Broken Light Panel', 'brokenlightpanel', 'The light panels have broken', 'The light panels have broken and\nyou cannot see without the lights\non. Use two spare parts to fix it.',
         [
             {label: 'Fix the lights', onClick:()=>{
                 this.stats.resources.tools-=2;

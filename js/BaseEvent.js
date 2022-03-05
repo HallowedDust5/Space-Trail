@@ -77,9 +77,11 @@ class BaseEvent extends BaseScene{
             BACKRECT_X + WIDTH/2,
             obj.event_image.y+obj.event_image.height*3 ,
             obj.event_description,
+            {align:'center'}
         )
         .setOrigin(.5,.5)
         .setStyle({font:'15px'})
+        
 
 
 

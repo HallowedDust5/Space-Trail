@@ -4,7 +4,7 @@ class ElectricalEvent extends BaseEvent {
      * @param {Object} stats Global stats object
      */
     constructor (stats) {
-        super(stats, 'Electrical Problem', 'electricalproblem', 'the electricity cut off', 'a part of the ship\'s wiring has been cut off.\n\t\t\t\tUse two spare parts to fix it. Continue,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tand let an astronaut die.',
+        super(stats, 'Electrical Problem', 'electricalproblem', 'the electricity cut off', 'A part of the ship\'s wiring has\nbeen cut off. Use two spare parts\nto fix it. Continue, and let an\nastronaut die.',
         [
             {label: 'Fix\nelectricity', onClick:()=>{
                 this.stats.resources.tools--;

@@ -7,7 +7,7 @@ class BrokenCommandPanelEvent extends BaseEvent {
     // asset needed
     constructor (stats) {
 
-        super(stats, 'Broken Command Panel', 'brokencommandpanel', 'The command panel has broken', 'The command panel is broken and you cannot\n control the ship or contact Earth.\n Use two spare parts to fix it.',
+        super(stats, 'Broken Command Panel', 'brokencommandpanel', 'The command panel has broken', 'The command panel is broken and\nyou cannot control the ship or\ncontact Earth. Use two spare parts\nto fix it.',
         [
             {label: 'Fix the \ncommand pannel', onClick:()=>{
                 this.stats.resources.tools-=2;
