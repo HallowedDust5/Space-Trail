@@ -177,7 +177,7 @@ class UIScene extends BaseScene{
                 }
                 else{
                     obj.instructions.push(
-                        this.add.text( GAME_WIDTH/2,GAME_HEIGHT/4, 'Choose an option before continuing',)
+                        this.add.text( GAME_WIDTH/2,GAME_HEIGHT/7, 'Choose an option before continuing',)
                             .setOrigin(.5,.5)
                     );
 

@@ -11,13 +11,12 @@ class LaunchScene extends Phaser.Scene{
     }
 
     preload(){
-        /*
-        Load needed assets here
-        */ 
-       
-
+        
+        
+        this.load.image('space-bkg','assets/sprites/starfield.png');
+        
+        
         this.objects = {};
-
 
     }
 
@@ -25,6 +24,8 @@ class LaunchScene extends Phaser.Scene{
         let obj = this.objects;
         const GAME_HEIGHT = this.sys.game.config.height;
         const GAME_WIDTH = this.sys.game.config.width; 
+        const TEXT_CONFIG = {font:'32px',fill:"#fff",backgroundColor:'#000'};
+
 
         const MAX_RESOURCE = 10;
 
@@ -38,10 +39,13 @@ class LaunchScene extends Phaser.Scene{
             return x;
         };
 
+        obj.bkg = this.add.image(0,0,'space-bkg')
+            .setOrigin(0,0);
+
 
 
         //Adds background for stats buttons
-        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH/1.4,GAME_HEIGHT/6,0xffffff);
+        obj.backRect = this.add.rectangle(GAME_WIDTH/2,GAME_HEIGHT/2,GAME_WIDTH/1.4,GAME_HEIGHT/3,0xffffff);
 
         //First stat's rectangle x coord
         let first_stat_x = obj.backRect.x - obj.backRect.x/1.8;
@@ -52,7 +56,7 @@ class LaunchScene extends Phaser.Scene{
         //THIS IS MEANT TO BE CHANGED LATER
         //whether that be the colors, this is only a basic layout
         for (let i = 1; i <= Object.keys(this.stats.resources).length; i++) {
-            obj.tool_rects.push(this.add.rectangle(first_stat_x,obj.backRect.y,obj.backRect.width/5.3,obj.backRect.height/1.3,0xd93093));
+            obj.tool_rects.push(this.add.rectangle(first_stat_x,obj.backRect.y,obj.backRect.width/5.3,obj.backRect.height/1.3,0x555a59));
             
             first_stat_x+= DIST_BTWN_STATS;
         }
@@ -83,9 +87,9 @@ class LaunchScene extends Phaser.Scene{
             stats_buttons[key] = {
 
                 label:this.add.text(first_stat_x,obj.backRect.y-obj.backRect.y/11,`${key}:${this.stats.resources[key]}`,).setOrigin(.5,.5),
-                plus:createButton(first_stat_x,obj.backRect.y-5,'+',this,plus,undefined,'20px Comic Sans'),
-                minus:createButton(first_stat_x,obj.backRect.y+20,'-',this,minus,undefined,'20px Comic Sans'),
-
+                plus:createButton(first_stat_x,obj.backRect.y-5,'+',this,plus,null,'20px','#fff','#000'),
+                minus:createButton(first_stat_x,obj.backRect.y+20,'-',this,minus,null,'20px','#fff','#000'),
+                icon:this.add.image(first_stat_x,obj.backRect.y-50,`${key}-icon`).setScale(.75)
             }
 
             //Increments each tools' x coord
@@ -102,6 +106,8 @@ class LaunchScene extends Phaser.Scene{
                 this.scene.start(new UIScene().key,this.stats);
             },
         );
+
+        obj.instructions = this.add.text(GAME_WIDTH/2,GAME_HEIGHT/4,'Pick your supplies for the long journey.\nYou can only pick a maximum of thirty supplies',{align:'center'}).setOrigin(.5,.5)
 
 
  
