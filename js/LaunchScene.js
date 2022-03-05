@@ -73,23 +73,28 @@ class LaunchScene extends Phaser.Scene{
                 if(this.stats.resources[key]>=MAX_RESOURCE){return;}//Stops if it's at MAX_RESOURCE
                 if(sum(Object.values(this.stats.resources))+1>MAX_SUM_RESOURCE){return;}//Stops if the sum of all resources is at MAX_SUM_RESOURCE
                 this.stats.resources[key]++;
-                stats_buttons[key].label.setText(`${key}:${this.stats.resources[key]}`)
+                stats_buttons[key].resourcelabel.setText(key)
+                stats_buttons[key].resourcecount.setText(this.stats.resources[key])
+                obj.total.setText(`Total: ${sum(Object.values(this.stats.resources))}`)
             };
 
             let minus = ()=>{
-                if(this.stats.resources[key]<=0){return;}
+                if(this.stats.resources[key]<=1){return;}
                 this.stats.resources[key]--;
-                stats_buttons[key].label.setText(`${key}:${this.stats.resources[key]}`)
+                stats_buttons[key].resourcelabel.setText(key)
+                stats_buttons[key].resourcecount.setText(this.stats.resources[key])
+                obj.total.setText(`Total: ${sum(Object.values(this.stats.resources))}`)
             };
 
             
             //Makes the label, plus and minus buttons 
             stats_buttons[key] = {
 
-                label:this.add.text(first_stat_x,obj.backRect.y-obj.backRect.y/11,`${key}:${this.stats.resources[key]}`,).setOrigin(.5,.5),
-                plus:createButton(first_stat_x,obj.backRect.y-5,'+',this,plus,null,'20px','#fff','#000'),
-                minus:createButton(first_stat_x,obj.backRect.y+20,'-',this,minus,null,'20px','#fff','#000'),
-                icon:this.add.image(first_stat_x,obj.backRect.y-50,`${key}-icon`).setScale(.75)
+                resourcelabel:this.add.text(first_stat_x,obj.backRect.y-60,key,{font:'20px'}).setOrigin(.5,.5),
+                resourcecount:this.add.text(first_stat_x,obj.backRect.y,this.stats.resources[key],{font:'25px'}).setOrigin(.5,.5),
+                plus:createButton(first_stat_x,obj.backRect.y+30,'ADD',this,plus,null,'20px','#fff','#000'),
+                minus:createButton(first_stat_x,obj.backRect.y+55,'REMOVE',this,minus,null,'20px','#fff','#000'),
+                icon:this.add.image(first_stat_x,obj.backRect.y-32,`${key}-icon`).setScale(.75)
             }
 
             //Increments each tools' x coord
@@ -107,7 +112,8 @@ class LaunchScene extends Phaser.Scene{
             },
         );
 
-        obj.instructions = this.add.text(GAME_WIDTH/2,GAME_HEIGHT/4,'Pick your supplies for the long journey.\nYou can only pick a maximum of thirty supplies',{align:'center'}).setOrigin(.5,.5)
+        obj.instructions = this.add.text(GAME_WIDTH/2,GAME_HEIGHT/4,'Pick your supplies for the long journey.\nYou can only pick a maximum of thirty supplies.',{align:'center'}).setOrigin(.5,.5);
+        obj.total = this.add.text(GAME_WIDTH/2,(3/10)*GAME_HEIGHT,`Total: ${sum(Object.values(this.stats.resources))}`).setOrigin(.5,.5);
 
 
  
